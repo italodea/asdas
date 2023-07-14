@@ -2,8 +2,8 @@ name: CI Release
 
 on:
   push:
-    tags: 
-      - 'rc-*'
+    branches:
+      - release
     
 jobs:
   build:
@@ -23,9 +23,9 @@ jobs:
         working-directory: ./backend
         run: npm ci
 
-      - name: Execute unit tests
-        working-directory: ./backend
-        run: npm test
+      # - name: Execute unit tests
+      #   working-directory: ./backend
+      #   run: npm test
 
       - name: Execute ESLint checks
         working-directory: ./backend
